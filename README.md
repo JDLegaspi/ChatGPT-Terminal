@@ -7,7 +7,7 @@ This is a nodeJS terminal project that implements ChatGPT's gpt-3.5-turbo model,
 To get started with this project, follow these steps:
 
 1. **Clone this repository**<br>
-   `$ git clone https://github.com/JSON/gpt3.5-turbo-terminal-chat.git`
+   `$ git clone https://github.com:JDLegaspi/Terminal-ChatGPT3.5-turbo.git`
 
 2. **Install dependencies**<br>
    `$ pnpm install`
