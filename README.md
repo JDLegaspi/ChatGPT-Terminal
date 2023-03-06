@@ -2,6 +2,15 @@
 
 This is a nodeJS terminal project that implements ChatGPT's gpt-3.5-turbo model, their most powerful GPT model, and allows users to interface with it in a terminal.
 
+## Why GPT-3.5-Turbo > ChatGPT
+GPT-3.5-Turbo is a much larger model than ChatGPT, with 1.3 trillion parameters compared to ChatGPT's 1.7 billion parameters. This makes GPT-3.5-Turbo much more powerful and capable of handling a wider range of natural language processing tasks than ChatGPT.
+
+GPT-3.5-Turbo is designed to perform a variety of natural language processing tasks, such as language translation, text summarization, and question-answering, among others. It has been trained on a vast amount of data from the internet, which has helped it become proficient at understanding and generating language in a wide range of domains.
+
+In contrast, ChatGPT is designed specifically for chatbot tasks. While it has been trained on a large amount of conversational data as well, its focus is on generating engaging and natural-sounding responses in a conversational setting.
+
+While both models are powerful and capable of performing natural language processing tasks, GPT-3.5-Turbo's larger size and more generalized training make it better suited for a wider variety of applications. Therefore, if you need a language model that can perform a wide range of natural language processing tasks, and you have the computational resources to handle its larger size, GPT-3.5-Turbo could be the better choice for you.
+
 ## Getting started
 
 To get started with this project, follow these steps:
