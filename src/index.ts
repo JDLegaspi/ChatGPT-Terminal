@@ -33,7 +33,7 @@ function askQuestion() {
       "\n\nyou: ";
   } else {
     lastMessage =
-      "Hi there! I'm a chatbot that can code really well. How can I help you?\n\n";
+      "Hi there! I'm a chatbot that can code really well. How can I help you?\n\nyou: ";
   }
 
   rl.question(lastMessage, async (response: string) => {
