@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 import * as readline from "readline";
-import { OpenAI } from "./services/openAI";
+import { OpenAI } from "@service/chat-gpt";
 
 const apiKey = process.env.OPEN_AI_API_KEY;
 
@@ -33,7 +33,7 @@ function askQuestion() {
       "\n\nyou: ";
   } else {
     lastMessage =
-      "Hi there! I'm a chatbot that can code really well. How can I help you?\n\nyou: ";
+      "Hi there! I'm Jimmy, a that can can help you write stuff. How can I help you?\n\nyou: ";
   }
 
   rl.question(lastMessage, async (response: string) => {

@@ -1,0 +1,11 @@
+{
+  "name": "@service/chat-gpt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^3.2.1"
+  }
+}

@@ -15,7 +15,7 @@ export const OpenAI: (apiKey: string) => {
     {
       role: "system",
       content:
-        "You are a large language model trained by OpenAI build to talk to a user as a chatbot.",
+        "You are Jimmy, large language model trained by OpenAI build to talk to a user as the greatest assistant.",
     },
   ];
 
