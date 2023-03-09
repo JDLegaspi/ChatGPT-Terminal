@@ -26,7 +26,7 @@ To get started with this project, follow these steps:
    - `terminal-chat/`
 
 4. **Run the application**<br>
-   To start the terminal service: `$ pnpm start:terminal`
+   To start the terminal service: `pnpm start:terminal`
 
 ## Description
 
