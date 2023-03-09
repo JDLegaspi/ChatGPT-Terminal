@@ -18,11 +18,12 @@ To get started with this project, follow these steps:
 1. **Clone this repository**<br>
    `$ git clone https://github.com:JDLegaspi/Terminal-ChatGPT3.5-turbo.git`
 
-2. **Install dependencies**<br>
-   `$ pnpm install`
+2. **Install dependencies recursively**<br>
+   `$ pnpm i -r`
 
-3. **Set up OpenAI API key**<br>
-   Create an account with OpenAI and obtain your API key. Then, create a `.env` file in the root directory of your project and add the following line with your API key: `OPEN_AI_API_KEY=[open_ai_api_key]`
+3. **Set up OpenAI API key in relevant packages**<br>
+   Create an account with OpenAI and obtain your API key. Then, create `.env` files in the following directories of your project and add the following line with your API key: `OPEN_AI_API_KEY=[open_ai_api_key]`:
+   - `terminal-chat/`
 
 4. **Run the application**<br>
    `$ pnpm start`
