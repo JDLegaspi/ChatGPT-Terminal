@@ -34,4 +34,5 @@ This project uses the `openai` package version `3.2.1` to connect to your OpenAI
 
 ## Packages Used
 
-- `openai` version `3.2.1`: Used for connecting to OpenAI API and sending requests.
+- `openai`: Used for connecting to OpenAI API and sending requests.
+- `readline`: Used for terminal prompt input.
