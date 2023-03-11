@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "start:tsundere": "ASSISTANT=tsundere ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",

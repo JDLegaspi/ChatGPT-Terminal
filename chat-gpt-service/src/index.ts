@@ -1,10 +1,14 @@
 //Initialize the OpenAI SDK
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
-export const OpenAI: (apiKey: string) => {
+export const OpenAI: (
+  apiKey: string,
+  systemPrompt?: string
+) => {
   chat: (chat: string) => Promise<void>;
+  initialise: () => Promise<void>;
   messages: ChatCompletionRequestMessage[];
-} = (apiKey) => {
+} = (apiKey, systemPrompt) => {
   const configuration = new Configuration({
     apiKey,
   });
@@ -15,11 +19,12 @@ export const OpenAI: (apiKey: string) => {
     {
       role: "system",
       content:
+        systemPrompt ??
         "You are Jimmy, large language model trained by OpenAI build to talk to a user as the greatest assistant.",
     },
   ];
 
-  const chat = async (message: string) => {
+  const createCompletion = async (message: string) => {
     messages.push({
       role: "user",
       content: message,
@@ -37,8 +42,18 @@ export const OpenAI: (apiKey: string) => {
       });
   };
 
+  const chat = async (message: string) => {
+    await createCompletion(message);
+  };
+
+  const initialise = async () => {
+    console.log("initialising...");
+    await createCompletion("What is the first thing you say?");
+  };
+
   return {
     chat,
     messages,
+    initialise,
   };
 };

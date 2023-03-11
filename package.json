@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A fullstack gpt monrepo",
   "scripts": {
-    "start:terminal": "pnpm --filter gpt-terminal-chat start"
+    "start:terminal": "pnpm --filter gpt-terminal-chat start",
+    "start:terminal:tsundere": "pnpm --filter gpt-terminal-chat start:tsundere"
   },
   "keywords": [],
   "author": "ashley@codecapers.com.au",
