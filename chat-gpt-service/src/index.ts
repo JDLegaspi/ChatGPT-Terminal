@@ -47,7 +47,6 @@ export const OpenAI: (
   };
 
   const initialise = async () => {
-    console.log("initialising...");
     await createCompletion("What is the first thing you say?");
   };
 
