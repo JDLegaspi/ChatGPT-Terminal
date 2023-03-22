@@ -20,7 +20,7 @@ export const OpenAI: (
       role: "system",
       content:
         systemPrompt ??
-        "You are Jimmy, large language model trained by OpenAI build to talk to a user as the greatest assistant.",
+        "You are John, large language model trained by OpenAI build to talk to a user as the greatest assistant.",
     },
   ];
 
@@ -31,7 +31,7 @@ export const OpenAI: (
     });
 
     const res = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages,
     });
 
@@ -43,11 +43,19 @@ export const OpenAI: (
   };
 
   const chat = async (message: string) => {
-    await createCompletion(message);
+    try {
+      await createCompletion(message);
+    } catch (e: any) {
+      console.log("Error: " + e.response.statusText);
+    }
   };
 
   const initialise = async () => {
-    await createCompletion("What is the first thing you say?");
+    try {
+      await createCompletion("What is the first thing you say?");
+    } catch (e: any) {
+      console.log("Error: " + e.response.statusText);
+    }
   };
 
   return {
