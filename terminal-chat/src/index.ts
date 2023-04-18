@@ -14,7 +14,7 @@ if (!apiKey) {
 
 const chosenAssistant = assistants[assistant ?? "default"];
 
-const useGPT4 = false;
+const useGPT4 = true;
 const ai = OpenAI(apiKey!, chosenAssistant.systemPrompt, useGPT4);
 
 const rl = readline.createInterface({
@@ -23,11 +23,11 @@ const rl = readline.createInterface({
 });
 
 const handleResponseChange = async (message: string) => {
-  rl.write(message);
+  process.stdout.write(message);
 };
 
 const handleResponseComplete = () => {
-  rl.write("\n\nyou: ");
+  process.stdout.write("\n\nyou: ");
 };
 
 async function askQuestion() {
