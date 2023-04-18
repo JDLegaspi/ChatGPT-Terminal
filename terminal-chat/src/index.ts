@@ -14,7 +14,7 @@ if (!apiKey) {
 
 const chosenAssistant = assistants[assistant ?? "default"];
 
-const useGPT4 = true;
+const useGPT4 = false;
 const ai = OpenAI(apiKey!, chosenAssistant.systemPrompt, useGPT4);
 
 const rl = readline.createInterface({
@@ -22,28 +22,35 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+const handleResponseChange = async (message: string) => {
+  rl.write(message);
+};
+
+const handleResponseComplete = () => {
+  rl.write("\n\nyou: ");
+};
+
 async function askQuestion() {
-  const latestAssistantMessage = ai.messages.filter(
-    (m) => m.role === "assistant"
-  );
+  rl.write(null, { ctrl: true, name: "u" }); // clear current user input
 
-  let lastMessage: string;
+  try {
+    const latestAssistantMessage = ai.messages.filter(
+      (m) => m.role === "assistant"
+    );
 
-  if (latestAssistantMessage.length) {
-    lastMessage =
-      "\n" +
-      latestAssistantMessage[latestAssistantMessage.length - 1].role +
-      ": " +
-      latestAssistantMessage[latestAssistantMessage.length - 1].content +
-      "\n\nyou: ";
-
-    rl.question(lastMessage, async (response: string) => {
-      await ai.chat(response);
+    if (latestAssistantMessage.length) {
+      rl.question("you: ", async (userInput: string) => {
+        process.stdout.write("\nassistant: ");
+        await ai.chat(userInput, handleResponseChange, handleResponseComplete);
+        askQuestion();
+      });
+    } else {
+      process.stdout.write("\nassistant: ");
+      await ai.initialise(handleResponseChange, handleResponseComplete);
       askQuestion();
-    });
-  } else {
-    await ai.initialise();
-    askQuestion();
+    }
+  } catch (e) {
+    console.error(e);
   }
 }
 

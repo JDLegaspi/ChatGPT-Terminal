@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^18.14.6",
     "typescript": "^4.9.5"
   },
   "dependencies": {
     "@service/chat-gpt": "workspace:^1.0.0",
+    "@types/node": "^18.15.0",
     "dotenv": "^16.0.3",
     "openai": "^3.2.1",
     "readline": "^1.3.0",
