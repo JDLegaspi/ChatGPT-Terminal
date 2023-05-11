@@ -14,7 +14,7 @@ if (!apiKey) {
 
 const chosenAssistant = assistants[assistant ?? "default"];
 
-const useGPT4 = true;
+const useGPT4 = false;
 const ai = OpenAI(apiKey!, chosenAssistant.systemPrompt, useGPT4);
 
 const rl = readline.createInterface({
@@ -31,18 +31,32 @@ const handleResponseComplete = () => {
 };
 
 async function askQuestion() {
-  rl.write(null, { ctrl: true, name: "u" }); // clear current user input
+  rl.write(null, { ctrl: true, name: "u" });
 
   try {
     const latestAssistantMessage = ai.messages.filter(
       (m) => m.role === "assistant"
     );
 
+    let userInput = "";
+
     if (latestAssistantMessage.length) {
-      rl.question("you: ", async (userInput: string) => {
-        process.stdout.write("\nassistant: ");
-        await ai.chat(userInput, handleResponseChange, handleResponseComplete);
-        askQuestion();
+      process.stdout.write("you: ");
+      rl.on("line", async (input) => {
+        if (!input.endsWith(";;")) {
+          userInput += input + "\n";
+        } else {
+          userInput += input.slice(0, -2);
+          rl.removeAllListeners("line");
+          process.stdout.write("\nassistant: ");
+
+          await ai.chat(
+            userInput,
+            handleResponseChange,
+            handleResponseComplete
+          );
+          askQuestion();
+        }
       });
     } else {
       process.stdout.write("\nassistant: ");
@@ -53,5 +67,7 @@ async function askQuestion() {
     console.error(e);
   }
 }
+
+console.log('Note: use ";;" and enter to finish your message.');
 
 askQuestion();
