@@ -14,7 +14,7 @@ if (!apiKey) {
 
 const chosenAssistant = assistants[assistant ?? "default"];
 
-const useGPT4 = false;
+const useGPT4 = true;
 const ai = OpenAI(apiKey!, chosenAssistant.systemPrompt, useGPT4);
 
 const rl = readline.createInterface({
