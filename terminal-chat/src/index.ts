@@ -8,7 +8,7 @@ const apiKey = process.env.OPEN_AI_API_KEY;
 const assistant = process.env.ASSISTANT;
 
 if (!apiKey) {
-  // console.log("No API key, exiting...");
+  console.log("No API key, exiting...");
   process.exit();
 }
 
