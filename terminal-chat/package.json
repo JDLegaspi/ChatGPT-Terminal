@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "start:tsundere": "ASSISTANT=tsundere ts-node src/index.ts",
-    "start:jb": "ASSISTANT=jb ts-node src/index.ts"
+    "start:jb": "ASSISTANT=jb ts-node src/index.ts",
+    "start:super": "ASSISTANT=super ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",

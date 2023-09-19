@@ -5,7 +5,8 @@
   "scripts": {
     "start": "pnpm --filter gpt-terminal-chat start",
     "start:terminal:tsundere": "pnpm --filter gpt-terminal-chat start:tsundere",
-    "start:terminal:jb": "pnpm --filter gpt-terminal-chat start:jb"
+    "start:terminal:jb": "pnpm --filter gpt-terminal-chat start:jb",
+    "start:super": "pnpm --filter gpt-terminal-chat start:super"
   },
   "keywords": [],
   "author": "jdalegaspi@gmail.com",
